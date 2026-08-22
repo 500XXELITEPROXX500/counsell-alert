@@ -262,21 +262,21 @@ def send_notification(
         "https://ntfy.sh"
     ).rstrip("/")
 
-    headers = {
-        "Title": title[:250],
-        "Priority": (
-            "high" if important
-            else "default"
-        ),
-        "Tags": (
-            "baseball,warning"
-            if important
-            else "baseball"
-        ),
-        "Click": url,
-        "Content-Type":
-            "text/plain; charset=utf-8",
-    }
+headers = {
+    "Title": "COUNSELL ALERT",
+    "Priority": (
+        "high" if important
+        else "default"
+    ),
+    "Tags": (
+        "baseball,warning"
+        if important
+        else "baseball"
+    ),
+    "Click": url,
+    "Content-Type":
+        "text/plain; charset=utf-8",
+}
 
     response = requests.post(
         f"{server}/{topic}",
